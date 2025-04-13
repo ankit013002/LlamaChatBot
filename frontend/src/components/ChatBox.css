@@ -1,0 +1,56 @@
+.chatbox-container{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.chatbox-message-container{
+    border: 1px solid black;
+    background-color: blue;
+    display: flex;
+    height: fit-content;
+    width: 100%;
+}
+
+.outgoing-message{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: end;
+}
+
+.incoming-message {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: start;
+}
+
+.message {
+    max-width: 50%;
+    width: fit-content;
+    padding: 1em;
+    display: flex;
+    text-align: start;
+}
+
+.outgoing-message-box {
+    border-radius: 2em 0 0 2em ;
+    background-image: linear-gradient(to right, #ff416c, #ff4b2b);
+}
+
+.incoming-message-box{
+    border-radius: 0 2em 2em 0;
+    background-image: linear-gradient(to right, rgb(11, 11, 173), rgb(45, 45, 136));
+}
+
+.thining-message{
+    color: grey;
+}
+
+.glow {
+    color: white;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
+        0 0 16px rgba(255, 255, 255, 0.6);
+    transition: all 0.2s ease-in-out;
+}

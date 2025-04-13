@@ -1,41 +1,51 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import ChatBox from "./components/ChatBox";
+import Messaging from "./components/Messaging";
 
 function App() {
-  const [nameAndNumbers, setnameAndNumbers] = useState([]);
   const [userInput, setUserInput] = useState("");
   const [backendData, setBackendData] = useState("");
+  const [conversationHistory, setConversationHistory] = useState([]);
+  const [thinking, setThinking] = useState(false);
 
-  useEffect(() => {
-    fetch("http://localhost:5000/data").then((res) => {
-      res.json().then((data) => {
-        console.log(data);
-        setnameAndNumbers(data);
-      });
+  const handleClick = (input) => {
+    setConversationHistory((prevConversationHistory) => {
+      return [...prevConversationHistory, { user: "client", message: input }];
     });
-  }, []);
-
-  const handleClick = () => {
+    setThinking(true);
     fetch("http://localhost:5000/send-data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ UserRequest: userInput }),
+      body: JSON.stringify({ UserRequest: input }),
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data.response);
         setBackendData(data.response);
+        setConversationHistory((prevConversationHistory) => {
+          setThinking(false);
+          return [
+            ...prevConversationHistory,
+            { user: "assistant", message: data.response },
+          ];
+        });
       });
   };
 
   return (
     <>
-      <div>
-        <div>{backendData}</div>
-        <div>
-          <input type="text" onChange={(e) => setUserInput(e.target.value)} />
-          <button onClick={handleClick} />
+      <div className="app-container">
+        <div className="app-chat-container">
+          <ChatBox
+            conversationHistory={conversationHistory}
+            thinking={thinking}
+          />
+        </div>
+        <div className="app-message-container">
+          <Messaging sendRequest={handleClick} />
         </div>
       </div>
     </>

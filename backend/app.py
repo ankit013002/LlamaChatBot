@@ -5,7 +5,7 @@ from llamaAI import get_chat_response
 app = Flask(__name__)
 CORS(app)
 
-
+# Not used but here as reference
 @app.route('/data', methods=['GET'])
 def get_data():
     items = [{"name":"john","number":0}, {"name":"Marie","number":1}]

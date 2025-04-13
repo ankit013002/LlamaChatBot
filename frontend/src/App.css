@@ -1,42 +1,52 @@
 #root {
-  max-width: 1280px;
+  height: 100%;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app-container{
+  display: flex;
+  background-color: #333333;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 1em;
+  border-radius: 2em;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-chat-container{
+  background-color: transparent;
+  overflow-y: scroll;
+  padding: 1em;
+  height: 90%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.app-message-container{
+  background-color: transparent;
+  padding: 1em;
+  height: 10%;
 }
 
-.card {
-  padding: 2em;
+.app-chat-container::-webkit-scrollbar {
+  width: 10px;
+  /* Width of the entire scrollbar */
 }
 
-.read-the-docs {
-  color: #888;
+.app-chat-container::-webkit-scrollbar-track {
+  background: #1f1f1f;
+  /* Track background */
+  border-radius: 10px;
+}
+
+.app-chat-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #38f9d7, #43e97b);
+  /* Thumb (the draggable part) */
+  border-radius: 10px;
+}
+
+.app-chat-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #30cfd0, #330867);
+  /* On hover */
 }
