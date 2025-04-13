@@ -1,0 +1,33 @@
+.vscode
+
+# === backend ===
+.env
+/venv
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+.env
+.env.*
+.DS_Store
+
+# === ollama ===
+ollama.db
+ollama_models/
+ollama.log
+
+# === frontend ===
+node_modules/
+build/
+dist/
+.env.local
+.env.development
+.env.production
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
