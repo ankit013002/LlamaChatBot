@@ -4,8 +4,6 @@ import ChatBox from "./components/ChatBox";
 import Messaging from "./components/Messaging";
 
 function App() {
-  const [userInput, setUserInput] = useState("");
-  const [backendData, setBackendData] = useState("");
   const [conversationHistory, setConversationHistory] = useState([]);
   const [thinking, setThinking] = useState(false);
 
@@ -24,7 +22,6 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.response);
-        setBackendData(data.response);
         setConversationHistory((prevConversationHistory) => {
           setThinking(false);
           return [

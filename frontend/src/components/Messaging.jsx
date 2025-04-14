@@ -9,10 +9,17 @@ const Messaging = (props) => {
     setInput("");
   };
 
+  const checkKey = (e) => {
+    if (e.key == "Enter") {
+      sendMessage();
+    }
+  };
+
   return (
     <div className="messaging-container">
       <input
         value={input}
+        onKeyDown={(e) => checkKey(e)}
         onChange={(e) => setInput(e.target.value)}
         className="messaging-container-input"
         placeholder="Enter Message..."
